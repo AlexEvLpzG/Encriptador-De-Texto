@@ -10,8 +10,7 @@ export default class EncryptText {
         this.buttonEncrypt.onclick = (e) => {
             e.preventDefault();
             if (this.validateInputText(this.inputTextValue.value)) {
-                this.encryptText(this.inputTextValue.value);
-                callback(this.inputTextValue.value);
+                callback(this.encryptText(this.inputTextValue.value));
             }
         }
     }

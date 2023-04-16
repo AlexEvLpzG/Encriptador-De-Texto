@@ -10,5 +10,6 @@ export default class Model {
 
     setValue(textInputValue) {
         this.text = textInputValue;
+        this.view.drawText(this.text);
     }
 }

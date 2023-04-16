@@ -82,6 +82,10 @@ img {
     color: var(--Dark-blue-300);
 }
 
+#textArea:focus {
+    outline: none;
+}  
+
 .container__form-info {
     display: flex;
     flex-wrap: wrap;
@@ -101,6 +105,11 @@ img {
 .encrypt {
     background-color: var(--Dark-blue-300);
     color: white;
+}
+
+.decrypt {
+    background-color: var(--Light-blue-100);
+    border: 1px solid var(--Dark-blue-300);
 }
 
 /* Todo: container_result Section  */
