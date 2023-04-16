@@ -5,31 +5,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encriptador</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header>
-        <img src="assets/Logo.png" alt="logo not found">
+    <header class="container">
+        <img class="container__navbar-logo" src="assets/Logo.png" alt="logo not found">
     </header>
 
-    <main>
-        <div>
+    <main class="container main">
+        <div class="container__form">
             <form>
-                <textarea name="text" id="text" cols="30" rows="10" placeholder="Ingrese el texto aqui"></textarea>
+                <textarea name="text" id="textArea" cols="60" rows="14" placeholder="Ingrese el texto aqui"></textarea>
                 <div>
-                    <p>Solo letras minúsculas y sin acentos</p>
-                    <button class="encrypt">Encriptar</button>
-                    <button class="decrypt">Desencriptar</button>
+                    <div class="container__form-info">
+                        <img src="./assets/admiracion.png">
+                        <p>Solo letras minúsculas y sin acentos</p>
+                    </div>
+
+                    <button class="button encrypt">Encriptar</button>
+                    <button class="button decrypt">Desencriptar</button>
                 </div>
             </form>
         </div>
 
-        <div>
-            <form>
-                <textarea name="text" id="text" cols="30" rows="10" placeholder="Ingrese el texto aqui"></textarea>
-                <div>
-                    <button class="copy">Copiar</button>
+        <div class="container_result">
+            <div class="card__info">
+                <img src="./assets/Muñeco.png" alt="icon info not found">
+                
+                <div class="card__info--text">
+                    <h4>Ningún mensaje fue encontrado</h4>
+                    <p>Ingresa el texto que desees encriptar o desencriptar.</p>
                 </div>
-            </form>
+            </div>
         </div>
     </main>
 </body>
