@@ -1,16 +1,16 @@
-export default class EncryptText {
+export default class DecryptText {
     constructor() {
         this.inputTextValue = document.getElementById('textArea');
-        this.buttonEncrypt = document.querySelector('.encrypt');
+        this.buttonDecrypt = document.querySelector('.decrypt');
         this.regexAccentuation = /[áéíóúÁÉÍÓÚüÜñÑ]|[A-Z]/;
         this.regexCapitalLetters = /[A-Z]/;
     }
 
     onClick(callback) {
-        this.buttonEncrypt.onclick = (e) => {
+        this.buttonDecrypt.onclick = (e) => {
             e.preventDefault();
             if (this.validateInputText(this.inputTextValue.value)) {
-                callback(this.encryptText(this.inputTextValue.value));
+                callback(this.decryptText(this.inputTextValue.value));
             }
         }
     }
@@ -35,24 +35,28 @@ export default class EncryptText {
     }
 
 
-    encryptText(text) {
+    decryptText(text) {
         const letterChanges = {
-            'e': 'enter',
-            'i': 'imes',
-            'a': 'ai',
-            'o': 'ober',
-            'u': 'ufat',
+            'enter': 'e',
+            'imes': 'i',
+            'ai': 'a',
+            'ober': 'o',
+            'ufat': 'u',
         }
 
-        let encryptedTextArray = [];
-        for (let index = 0; index < text.length; index++) {
-            if (letterChanges[text[index]] != undefined) {
-                encryptedTextArray.push(letterChanges[text[index]]);
-                continue;
+        let decryptedTextArray = [];
+        const textLength = text.length;
+        for (let i = 0; i < textLength; ) {
+            const [key, value] = Object.entries(letterChanges).find(([key, value]) => text.substr(i).startsWith(key)) || [];
+            if (key) {
+              decryptedTextArray.push(value);
+              i += key.length;
+            } else {
+              decryptedTextArray.push(text[i]);
+              i++;
             }
-            encryptedTextArray.push(text[index]);
         }
-
-        return encryptedTextArray.join('');
+           
+        return decryptedTextArray.join('');
     }
 }

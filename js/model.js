@@ -8,7 +8,7 @@ export default class Model {
         this.view = view;
     }
 
-    setValue(textInputValue) {
+    setText(textInputValue) {
         this.text = textInputValue;
         this.view.drawText(this.text);
     }
