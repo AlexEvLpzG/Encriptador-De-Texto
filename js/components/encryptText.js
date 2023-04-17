@@ -1,4 +1,11 @@
+/**
+ * La clase EncryptText se encarga de manejar la funcionalidad de encriptar un texto.
+ */
 export default class EncryptText {
+
+    /**
+     * El constructor de la clase EncryptText inicializa los elementos HTML necesarios para encriptar el texto.
+     */
     constructor() {
         this.inputTextValue = document.getElementById('textArea');
         this.buttonEncrypt = document.querySelector('.encrypt');
@@ -6,6 +13,10 @@ export default class EncryptText {
         this.regexCapitalLetters = /[A-Z]/;
     }
 
+    /**
+     * La función onClick asigna el evento onclick al botón de encriptar, el cual llama al callback pasado por parámetro con el texto encriptado.
+     * @param {function} callback La función que se llamará cuando se encripte el texto.
+     */
     onClick(callback) {
         this.buttonEncrypt.onclick = (e) => {
             e.preventDefault();
@@ -15,19 +26,24 @@ export default class EncryptText {
         }
     }
 
+    /**
+     * La función validateInputText valida si el texto ingresado cumple con ciertos requisitos.
+     * @param {string} text El texto a validar.
+     * @returns {boolean} True si el texto es válido, false si no lo es.
+     */
     validateInputText(text) {
         if (text.trim() === "") {
-            console.log('Error el texto no puede ir vacío');
+            window.alert('Error el texto no puede ir vacío');
             return false;
         }
 
         if (this.regexCapitalLetters.test(text)) {
-            console.log('Error el texto ingresado tiene letras mayúsculas');
+            window.alert('Error el texto ingresado tiene letras mayúsculas');
             return false;
         }
 
         if (this.regexAccentuation.test(text)) {
-            console.log('Error tu texto contiene un signo de acentuación');
+            window.alert('Error tu texto contiene un signo de acentuación');
             return false;
         }
         
@@ -35,6 +51,11 @@ export default class EncryptText {
     }
 
 
+    /**
+     * La función encryptText encripta un texto mediante una serie de reemplazos de letras definidos en la constante letterChanges.
+     * @param {string} text El texto a encriptar.
+     * @returns {string} El texto encriptado.
+     */
     encryptText(text) {
         const letterChanges = {
             'e': 'enter',

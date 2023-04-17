@@ -1,4 +1,10 @@
+/**
+ * La clase DecryptText se encarga de manejar la funcionalidad de desencriptar el texto ingresado.
+ */
 export default class DecryptText {
+    /**
+     * El constructor de la clase DecryptText inicializa los elementos HTML necesarios.
+     */
     constructor() {
         this.inputTextValue = document.getElementById('textArea');
         this.buttonDecrypt = document.querySelector('.decrypt');
@@ -6,6 +12,10 @@ export default class DecryptText {
         this.regexCapitalLetters = /[A-Z]/;
     }
 
+     /**
+     * La función onClick asigna el evento onclick al botón de desencriptar.
+     * @param {function} callback La función que se ejecutará cuando se desencripte el texto.
+     */
     onClick(callback) {
         this.buttonDecrypt.onclick = (e) => {
             e.preventDefault();
@@ -15,26 +25,35 @@ export default class DecryptText {
         }
     }
 
+    /**
+     * La función validateInputText valida el texto ingresado por el usuario.
+     * @param {string} text El texto ingresado por el usuario.
+     * @returns {boolean} Retorna verdadero si el texto es válido y falso si no lo es.
+     */
     validateInputText(text) {
         if (text.trim() === "") {
-            console.log('Error el texto no puede ir vacío');
+            window.alert('Error el texto no puede ir vacío');
             return false;
         }
 
         if (this.regexCapitalLetters.test(text)) {
-            console.log('Error el texto ingresado tiene letras mayúsculas');
+            window.alert('Error el texto ingresado tiene letras mayúsculas');
             return false;
         }
 
         if (this.regexAccentuation.test(text)) {
-            console.log('Error tu texto contiene un signo de acentuación');
+            window.alert('Error tu texto contiene un signo de acentuación');
             return false;
         }
         
         return true;
     }
 
-
+    /**
+     * La función decryptText desencripta el texto ingresado por el usuario.
+     * @param {string} text El texto encriptado ingresado por el usuario.
+     * @returns {string} El texto desencriptado.
+     */
     decryptText(text) {
         const letterChanges = {
             'enter': 'e',

@@ -30,9 +30,11 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     font-family: 'Inter', sans-serif;
     font-style: normal;
+    width: 100%;
 }
 
 *,
@@ -76,6 +78,8 @@ textarea {
 }
 
 #textArea {
+    height: 50vh;
+    width: 45vw;
     border: none;
     background-color: var(--Light-blue-100);
     color: var(--Dark-blue-300);
@@ -110,11 +114,18 @@ textarea {
     padding: 25px 42px;
     width: 300px;
     font-size: 18px;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .encrypt {
     background-color: var(--Dark-blue-300);
     color: white;
+    margin-right: 20px;
+}
+
+.encrypt:hover {
+    background-color: var(--Dark-blue-400);
+    transition: background-color 0.2s ease-in-out;
 }
 
 .decrypt {
@@ -123,11 +134,21 @@ textarea {
     color: var(--Dark-blue-300);
 }
 
+.decrypt:hover {
+    background-color: var(--Light-blue-300);
+    transition: background-color 0.2s ease-in-out;
+}
+
 .copy-btn {
     display: none;
     background-color: white;
     border: 1px solid var(--Dark-blue-300);
     color: var(--Dark-blue-300);
+}
+
+.copy-btn:hover {
+    background-color: var(--Light-blue-300);
+    transition: background-color 0.2s ease-in-out;
 }
 
 /* Todo: container_result Section  */
@@ -172,11 +193,16 @@ textarea {
 }
 
 .result-text {
+    display: none;
     padding: 20px;
     height: 450px;
 }
 
 @media (max-width: 1280px) {
+    body {
+        justify-content: flex-start;
+    }
+
     .main {
         gap: 40px;
         margin-left: 100px;
@@ -204,6 +230,13 @@ textarea {
         width: 80%;
         height: 100%;
         margin: auto;
+    }
+
+    .button {
+        padding: 25px 42px;
+        width: 300px;
+        font-size: 14px;
+        transition: background-color 0.2s ease-in-out;
     }
 
     .card__info {
