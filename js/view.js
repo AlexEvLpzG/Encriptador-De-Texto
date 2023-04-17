@@ -1,3 +1,4 @@
+import CopyText from './components/copyText.js';
 import DecryptText from './components/decryptText.js';
 import EncryptText from './components/encryptText.js';
 
@@ -6,7 +7,10 @@ export default class View {
         this.model = null;
         this.encryptTextForm = new EncryptText();
         this.decryptTextForm = new DecryptText();
+        this.copyText = new CopyText();
+
         this.containerResult = document.querySelector('.container_result');
+        this.textAreaResult = document.querySelector('#resultTextArea');
         this.cardInfo = document.querySelector('.card__info');
 
         this.encryptTextForm.onClick((text) => this.model.setText(text));
@@ -18,19 +22,10 @@ export default class View {
     }
 
     drawText(inputText) {
+        this.copyText.copyTextButton.style.display = 'block';
         this.cardInfo.style.display = 'none';
-    
-        const oldResultTextDiv = document.querySelector('.result-text');
-        if (oldResultTextDiv) {
-            oldResultTextDiv.remove();
-        }
-    
-        const resultTextDiv = document.createElement('div');
-        resultTextDiv.classList.add('result-text');
-        const encryptedTextParagraph = document.createElement('p');
-        encryptedTextParagraph.innerHTML = inputText;
-        resultTextDiv.appendChild(encryptedTextParagraph);
-    
-        this.containerResult.appendChild(resultTextDiv);
+        this.textAreaResult.value = inputText;
+
+        this.copyText.onClick(inputText);
     }
 }

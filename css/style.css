@@ -68,14 +68,18 @@ img {
     padding-top:80px;
 }
 
+textarea {
+    color: var(--Dark-blue-300);
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    resize: none;
+}
+
 #textArea {
     border: none;
     background-color: var(--Light-blue-100);
     color: var(--Dark-blue-300);
     font-size: 20px;
-    resize: none;
-    font-family: 'Inter', sans-serif;
-    font-style: normal;
 }
 
 #textArea::placeholder {
@@ -84,7 +88,13 @@ img {
 
 #textArea:focus {
     outline: none;
-}  
+}
+
+#resultTextArea {
+    border: none;
+    margin: 0 auto;
+    font-size: 20px;
+}
 
 .container__form-info {
     display: flex;
@@ -110,16 +120,28 @@ img {
 .decrypt {
     background-color: var(--Light-blue-100);
     border: 1px solid var(--Dark-blue-300);
+    color: var(--Dark-blue-300);
+}
+
+.copy-btn {
+    display: none;
+    background-color: white;
+    border: 1px solid var(--Dark-blue-300);
+    color: var(--Dark-blue-300);
 }
 
 /* Todo: container_result Section  */
 .container_result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     position: relative;
     background-color: white;
     border-radius: 32px;
     height: 550px;
     width: 400px;
-    padding: 0 32px;
+    padding: 42px 32px;
 }
 
 .card__info {
@@ -151,6 +173,7 @@ img {
 
 .result-text {
     padding: 20px;
+    height: 450px;
 }
 
 @media (max-width: 1280px) {
@@ -206,5 +229,13 @@ img {
         padding: 0 5px;
         font-size: 10px;
         color: var(--Gray-400);
+    }
+
+    .result-text {
+        padding: 20px;
+    }
+
+    .copy-btn {
+        margin-bottom: 40px;
     }
 }
